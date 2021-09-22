@@ -37,10 +37,11 @@
     "node-gyp-build": "^4.3.0"
   },
   "devDependencies": {
-    "node-gyp": "^5.0.7",
+    "eslint": "^6.8.0",
+    "node-gyp": "^8.2.0",
     "nyc": "^15.0.0",
-    "prebuildify": "^3.0.4",
-    "prebuildify-cross": "github:prebuild/prebuildify-cross#v4.0.0",
+    "prebuildify": "^4.2.0",
+    "prebuildify-cross": "^4.0.1",
     "standard": "^14.3.1",
     "tap-dot": "^2.0.0",
     "tape": "^4.10.1",
