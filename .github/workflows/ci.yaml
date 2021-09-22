@@ -15,12 +15,18 @@ jobs:
           - macos-latest
           - ubuntu-latest
           - windows-latest
+
     steps:
       - name: Fetch code
-        uses: actions/checkout@v1
+      - uses: actions/checkout@v2
         with:
-          submodules: true
-
+         submodules: true
+      - name: Python3 3.7
+      - uses: actions/setup-python@v2
+        with:
+         python-version: '3.7' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+         architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
+         
       - name: Install dependencies
         run: yarn install --ignore-scripts
 
@@ -39,7 +45,7 @@ jobs:
 
       - name: Use Node.js ${{ steps.node-version-nix.outputs.version }} (Linux & macOS)
         if: runner.os != 'Windows'
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ steps.node-version-nix.outputs.version }}
 
@@ -50,7 +56,7 @@ jobs:
 
       - name: Use Node.js ${{ steps.node-version-win.outputs.version }} (Windows)
         if: runner.os == 'Windows'
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ steps.node-version-win.outputs.version }}
 
@@ -69,7 +75,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Fetch code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
         with:
           submodules: true
 
@@ -112,7 +118,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Fetch code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
         with:
           fetch-depth: 1
 
@@ -136,7 +142,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Fetch code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
         with:
           fetch-depth: 1
 
